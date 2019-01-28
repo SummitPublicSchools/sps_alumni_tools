@@ -1308,7 +1308,7 @@ OPEID,NCESID,Name,State,Control,Institution Name,City
 262500,187444,William Paterson University of New Jersey,New Jersey,Public,William Paterson University of New Jersey,Wayne
 2357600,187596,Navajo Technical College,New Mexico,Public,Navajo Technical College,Crownpoint
 1063200,187602,De Wolff College Hair Styling and Cosmetology,New Mexico,Private for-profit,De Wolff College Hair Styling and Cosmetology,Albuquerque
-474300,187639,Clovis Community College,New Mexico,Public,Clovis Community College,Clovis
+474300,187639,Clovis Community College (NM),New Mexico,Public,Clovis Community College,Clovis
 265100,187648,Eastern New Mexico University-Main Campus,New Mexico,Public,Eastern New Mexico University-Main Campus,Portales
 2146400,187745,Institute of American Indian and Alaska Native Culture,New Mexico,Public,Institute of American Indian and Alaska Native Culture,Santa Fe
 265300,187897,New Mexico Highlands University,New Mexico,Public,New Mexico Highlands University,Las Vegas
@@ -5747,7 +5747,6 @@ OPEID,NCESID,Name,State,Control,Institution Name,City
 394800,122454,San Francisco Art Institute,California,Private not-for-profit,San Francisco Art Institute,San Francisco
 115400,122597,San Francisco State University,California,Public,San Francisco State University,San Francisco
 127900,122603,San Francisco Theological Seminary,California,Private not-for-profit,San Francisco Theological Seminary,San Anselmo
-1245200,122737,San Jose-Evergreen Community College District,California,Public,San Jose-Evergreen Community College District,San Jose
 128200,122746,San Jose City College,California,Public,San Jose City College,San Jose
 3072700,122843,Westwood College-Los Angeles,California,Private for-profit,Westwood College-Los Angeles,Los Angeles
 2578000,122852,Santa Barbara Business College-Santa Maria,California,Private for-profit,Santa Barbara Business College-Santa Maria,Santa Maria
@@ -7494,3 +7493,7 @@ OPEID,NCESID,Name,State,Control,Institution Name,City
 394000,242653,INTER AMERICAN UNIV OF PUERTO RICO- METR,PR,Private,,
 4242100,484905,UNIVERSITY OF NORTH TEXAS AT DALLAS,TX,Public,University of North Texas at Dallas,Dallas
 942100,N/A,BRANDON UNIVERSITY,,Public,,
+112700,110370,CALIFORNIA COLLEGE OF THE ARTS,CA,Private,,
+2244400,N/A,AMERICAN UNIVERSITY OF THE CARIBBEAN,,Private,,
+4253400,489201,Clovis Community College (CA),California,Public,Clovis Community College,Fresno
+112701,110370,California College of the Arts,California,Private not-for-profit,California College of the Arts,Oakland

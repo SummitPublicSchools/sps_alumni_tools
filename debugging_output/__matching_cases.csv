@@ -1,0 +1,12 @@
+Matching case,Frequency
+Perfect Match,2835
+(NSC only) New attending enrollment,49
+Unreported left college (was Attending),43
+(DB Only) Attending,11
+(DB Only) Transferred out,10
+(NSC only) New withdrew enrollment,5
+(NSC only) New transferred out enrollment,4
+"Status matches, but different start dates",3
+(DB Only) Withdrew,3
+(DB Only) Graduated,3
+Non-grad Student-College Match w diff start & status,1

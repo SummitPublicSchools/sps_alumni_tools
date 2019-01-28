@@ -10,6 +10,7 @@ from botutils.tabletools import tableclass as tc
 from botutils.tabletools import tabletools as tt
 from nsc_modules import nsc_names as n
 from datetime import date
+import datetime
 
 def check_degrees_table_complete(nsc_data, degree_dict):
     '''performs check and if not, creates an update file and exits'''
@@ -41,7 +42,7 @@ def check_college_table_complete(nsc_data, college_dict):
     # The OPEIDs we're comparing have follow the format '001650-01' in NSC
     # and 165001 in the IPEDS database. Also, if the two digit ending is
     # not found, '00' will specify the same school at the main branch
-    opeid_missing=[] 
+    opeid_missing=[]
     for entry in nsc_colleges:
         parts = entry.split('-')
         opeid1 = str(int(parts[0]+parts[1]))
@@ -179,7 +180,7 @@ def combine_s_c_enrollments(s_c_table, hd, daysgap):
             last_end   = s_c_table[new_enr[-1]][hd['End Date']]
             this_start = s_c_table[i][hd['Start Date']]
             days_diff = (this_start - last_end).days
-            
+
             if (days_diff > daysgap or #too many days apart
                (    s_c_table[i-1][hd['Grad Date']] and #continuing after
                 not s_c_table[i][hd['Grad Date']])):    #graduating
@@ -204,7 +205,7 @@ def combine_s_c_enrollments(s_c_table, hd, daysgap):
             for col in [hd[n.ENROLLMENT_STATUS], ]:
                 record[col] = s_c_table[enrollment[-1]][col]
 
-            new_s_c_table.append(record)   
+            new_s_c_table.append(record)
 
     else: # the case if there is only a single entry for the student/college
         new_s_c_table = s_c_table
@@ -252,7 +253,7 @@ def combine_contiguous_enrollments(nsc_data, daysgap):
 def add_status_fields(combined_nsc, degree_dict, daysgap, effdate):
     '''Adds a few interpreted status fields to the combined records:
     Status = Attending, Graduated, Transferred Out, Withdrew
-    DegreeType = Bachelor's, Associate's, Certificate, Associate's or 
+    DegreeType = Bachelor's, Associate's, Certificate, Associate's or
                  Certificate (TBD), Master's
     DataSource = NSC (only option
     LastVerified = Date provided by effdate
@@ -377,7 +378,7 @@ def add_Salesforce_indices(combined_nsc):
             alumni_ids.append(alumni_dict[row[combined_nsc.c('sId')]])
         except:
             alumni_ids.append('N/A')
-    
+
     # Finally, add the new columns back to the master table
     combined_nsc.add_column('College__c', college_ids)
     combined_nsc.add_column('Student__c', alumni_ids)
@@ -462,7 +463,7 @@ def main(nsc, sch, deg, out, daysgap, effdate):
     print('-'*40)
     print('Adding Salesforce IDs for alumni and colleges')
     add_Salesforce_indices(combined_nsc)
-    
+
     # Throw out the columns we don't need anymore and reorder others
     print('-'*40)
     print('Creating final output and saving to %s.' % out)
@@ -504,7 +505,7 @@ if __name__ == '__main__':
     if args.effdate is None:
         #args.effdate='08/10/2016'
         #args.effdate='11/18/2016'
-        args.effdate='04/13/2016'
+        args.effdate='11/28/2018'
     main(   arg_dict['nsc'][0],
             arg_dict['sch'][0],
             arg_dict['deg'][0],

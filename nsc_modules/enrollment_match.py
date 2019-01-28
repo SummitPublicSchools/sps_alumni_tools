@@ -58,7 +58,7 @@ def get_extra_correction(mr, school_type):
     if not mr[4]:
         if correction: correction += ', '
         correction += 'Missing Date Last Verified'
-    
+
     if not mr[5]:
         if correction: correction += ', '
         correction += 'Missing Status'
@@ -474,7 +474,7 @@ class SCSt_TW_Matr_Match(MatchCase):
 
     def con_flag(self, mr, acc_dict):
         flag_text = '<Not changed>NSC indicates actually enrolled then withdrew'
-        
+
         flag_text += ' (currently ' +mr[16]+ '): ' +acc_dict[mr[1]][0]
         flag_text += mr[2].strftime(' (%b %Y start)')
         return [mr[0], True, flag_text, mr[10]]
@@ -507,7 +507,7 @@ class SC_StatusMatch(MatchCase):
             return [mr[0], True, flag_text, mr[10]]
         else:
             return None
- 
+
 class SC_anything_G_Match(MatchCase):
     def comp(self, db, nsc):
         return True if ( db[0] == nsc[0] and # Student
@@ -526,7 +526,7 @@ class SC_anything_G_Match(MatchCase):
         flag_text += very_diff_start_date(mr)
         flag_text += '): ' +acc_dict[mr[1]][0]
         return [mr[0], True, flag_text, mr[10]]
- 
+
 class SC_G_anything_Match(MatchCase):
     def comp(self, db, nsc):
         return True if ( db[0] == nsc[0] and # Student
@@ -565,7 +565,7 @@ class NotInDB_status(MatchCase):
         self.name = name
         self.status = status
     def comp(self, db, nsc):
-        return True if (db[0] is None and # 
+        return True if (db[0] is None and #
                         nsc[5] == self.status
                         ) else False
 
@@ -574,7 +574,7 @@ class NotInDB_status(MatchCase):
     def con_flag(self, mr, acc_dict):
         flag_text = '<Added>NSC indicates previously unreported enrollment ('
         flag_text += self.status + '): '
-        flag_text += acc_dict[mr[1]][0]
+        #flag_text += acc_dict[mr[1]][0]
         flag_text += mr[2].strftime(' (%b %Y start)')
         return [mr[0], True, flag_text, mr[10]]
 
@@ -709,7 +709,7 @@ def find_matches(db_enr, nsc_enr):
         nsc_student = list(nsc_enr.get_match_rows(e.Student__c, student))
         db_student = list(db_enr.get_match_rows(e.Student__c, student))
         db_blank = [None]*10 # for using to pass to MatchCases w/ db_null
-        
+
         for case in match_cases:
             if not nsc_student: # we've matched all the nsc rows
                 break; # move on to the next student
@@ -751,4 +751,3 @@ def find_matches(db_enr, nsc_enr):
                 match_table.append(match_row)
 
     return (db_enr_map, nsc_enr_map, match_table)
-
