@@ -102,3 +102,4 @@ $RECYCLE.BIN/
 *.lnk
 nsc_inputs/NSC FILES/
 nsc_inputs/Processed SF Import Files/
+nsc_inputs/outputs_reports/
