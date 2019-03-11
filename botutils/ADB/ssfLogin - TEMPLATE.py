@@ -6,6 +6,6 @@ your login credentials
 Updated token on 10/24/2018
 '''
 
-user = 'dataoperations+1@summitps.org'
-password = 'R^EemSr7Ef'
-token = '0dstxxXSOvnkJgyu6g0qjJTK'
+user = ''
+password = ''
+token = ''
