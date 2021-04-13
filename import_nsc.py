@@ -98,12 +98,14 @@ def add_columns_to_nsc_data(nsc_data, college_dict):
     startDate = []
     endDate = []
     gradDate = []
+    enrollStatus = []
     grab_columns = [n.YOUR_UNIQUE_IDENTIFIER,
                     n.HIGH_SCHOOL_GRAD_DATE,
                     n.COLLEGE_CODE_BRANCH,
                     n.ENROLLMENT_BEGIN,
                     n.ENROLLMENT_END,
                     n.GRADUATION_DATE,
+                    n.ENROLLMENT_STATUS
                    ]
     # The following will yield lists with only the above columns
     for row in nsc_data.get_columns(grab_columns):
@@ -146,6 +148,10 @@ def add_columns_to_nsc_data(nsc_data, college_dict):
                                 int(gradD_raw[6:])))
         else: gradDate.append('')
 
+        enrollStatus_raw = row[6]
+        if enrollStatus_raw:
+            enrollStatus.append(enrollStatus_raw)
+        else: enrollStatus.append('')
 
     # After looping through all raw records, add the results to main table
     nsc_data.add_column('sId', sId)
@@ -155,6 +161,7 @@ def add_columns_to_nsc_data(nsc_data, college_dict):
     nsc_data.add_column('Start Date', startDate)
     nsc_data.add_column('End Date', endDate)
     nsc_data.add_column('Grad Date', gradDate)
+    nsc_data.add_column('Enrollment Status', enrollStatus) 
 
 def combine_s_c_enrollments(s_c_table, hd, daysgap):
     '''s_c_table is a list of lists containing all the enrollments for
@@ -198,7 +205,7 @@ def combine_s_c_enrollments(s_c_table, hd, daysgap):
 
             # columns to copy the max value into
             for col in [hd['End Date'],     hd[n.GRADUATED],
-                        hd[n.DEGREE_TITLE], hd[n.MAJOR]]:
+                        hd[n.DEGREE_TITLE], hd[n.MAJOR], hd['Enrollment Status']]:
                 record[col] = max([s_c_table[enr][col] for enr in enrollment])
 
             # columns to copy the final value into
@@ -402,6 +409,7 @@ def finalize_output_columns(combined_nsc):
                    'Date_Last_Verified__c',
                    'Degree_Text__c',
                    'Major_Text__c',
+                   'Enrollment Status'
                   ]
     source_col = [ 'sId',
                    n.LAST_NAME,
@@ -419,6 +427,7 @@ def finalize_output_columns(combined_nsc):
                    'Last Verified',
                    n.DEGREE_TITLE,
                    n.MAJOR,
+                   'Enrollment Status'
                  ]
     new_table = combined_nsc.new_subtable(source_col, output_col)
     new_table.apply_func('Last Name', str.title)
