@@ -409,7 +409,7 @@ def finalize_output_columns(combined_nsc):
                    'Date_Last_Verified__c',
                    'Degree_Text__c',
                    'Major_Text__c',
-                   'Enrollment Status'
+                   'Enrollment_Status__c'
                   ]
     source_col = [ 'sId',
                    n.LAST_NAME,
