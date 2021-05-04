@@ -1,0 +1,244 @@
+Student__c,College__c,Start_Date__c,End_Date__c,Date_Last_Verified__c,Status__c,Degree_Type__c,Data_Source__c,Degree_Text__c,Major_Text__c,Index (for debugging)
+003f40000169i0fAAA,N/A,2019-09-03,2020-04-24,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3398
+003f400000KvxfjAAB,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3349
+003f400000KvxfjAAB,N/A,2018-06-18,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3348
+003f400000KvxdaAAB,N/A,2019-01-28,2019-05-24,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,1101
+003f40000169hxaAAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2676
+003f400000KvxROAAZ,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,771
+003f400000KvxROAAZ,N/A,2015-08-31,2019-05-24,2019-11-18,Graduated,Associate's,NSC,ASSOCIATE OF ARTS-TRANSFER,AA-T IN COMMUNICATION STUDIES,770
+003f400000Kvxe4AAB,N/A,2018-06-18,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,1484
+003f400000KvxNSAAZ,N/A,2016-02-01,2019-05-24,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3286
+003f400000KvxVaAAJ,N/A,2017-09-05,2017-12-21,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3808
+003f40000169hrcAAA,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,403
+003f40000169hsaAAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3284
+003f400000KvxW5AAJ,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3535
+003f400000KvxW5AAJ,N/A,2019-01-28,2019-05-24,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3534
+003f400000KvxWiAAJ,N/A,2016-08-29,2017-07-27,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3566
+003f400000xFjyjAAC,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2597
+003f400000xFjyjAAC,N/A,2018-01-29,2019-05-24,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2596
+003f400000xFjyiAAC,N/A,2018-09-04,2018-12-20,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,4042
+003f400000KvxeHAAR,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,619
+003f400000KvxeHAAR,N/A,2018-06-18,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,618
+003f400000TlTLAAA3,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,968
+003f400000KvxWOAAZ,N/A,2018-06-18,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,4237
+003f400000KvxWOAAZ,N/A,2017-09-05,2017-12-21,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,4236
+003f400000TlTLXAA3,N/A,2018-09-04,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2924
+003f40000169hw8AAA,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2310
+003f400000TlTKVAA3,N/A,2018-09-04,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3960
+003f40000169huwAAA,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3173
+003f400000KvxW6AAJ,N/A,2017-06-19,2017-07-27,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,2732
+003f400000TlTKEAA3,N/A,2018-09-04,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,459
+003f400000KvxVTAAZ,N/A,2016-08-29,2017-05-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,417
+003f400000Kvxe6AAB,N/A,2017-09-05,2018-05-25,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,2535
+003f40000169hqfAAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1
+003f400000KvxdCAAR,N/A,2017-09-05,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1241
+003f400000KvxWUAAZ,N/A,2016-08-29,2019-05-24,2019-11-18,Graduated,Associate's,NSC,ASSOCIATE OF SCIENCE-TRANSFER,AS-T IN BUS.ADM.,4031
+003f400000TlTSVAA3,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2205
+003f400000KvxVIAAZ,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1962
+003f400000TlTLbAAN,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2317
+003f400000TlTLbAAN,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2316
+003f400000KvxQrAAJ,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,483
+003f400000KvxfmAAB,N/A,2017-09-05,2019-05-24,2019-11-18,Graduated,Associate's,NSC,ASSOCIATE OF ARTS-TRANSFER,AA-T IN COMMUNICATION STUDIES,2514
+003f40000169i0gAAA,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,912
+003f400000KvxRCAAZ,N/A,2015-08-31,2016-05-27,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,1944
+003f400000KvxTKAAZ,N/A,2017-01-30,2017-05-22,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,1472
+003f400000TlTLxAAN,N/A,2018-09-04,2019-05-24,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,1091
+003f400000KvxduAAB,N/A,2017-09-05,2020-05-22,2019-11-18,Graduated,Associate's,NSC,ASSOCIATE OF SCIENCE-TRANSFER,AS-T IN BIOLOGY,129
+003f400000KvxUnAAJ,N/A,2018-06-18,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,154
+003f400000TlTMcAAN,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1767
+003f400000TlTMcAAN,N/A,2018-09-04,2019-05-24,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,1766
+003f40000169hqSAAQ,N/A,2019-09-03,2019-11-15,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2050
+003f40000169uESAAY,N/A,2019-09-03,2020-04-07,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,868
+003f400000OdnFdAAJ,N/A,2019-01-28,2019-05-24,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2174
+003f400000TlTM8AAN,N/A,2018-09-04,2020-03-20,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2320
+003f400000KvxWRAAZ,N/A,2017-01-30,2017-12-21,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3508
+003f400000Kvxd5AAB,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,4116
+003f400000Kvxd5AAB,N/A,2017-09-05,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,4115
+003f400000TlTQnAAN,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,294
+003f40000169hvwAAA,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2263
+003f40000169hqnAAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,192
+003f400000KvxR4AAJ,N/A,2015-08-31,2017-07-27,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,1331
+003f400000KvxgNAAR,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3022
+003f400000KvxVLAAZ,N/A,2018-06-18,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,90
+003f400000KvxQRAAZ,N/A,2015-08-31,2017-05-26,2019-11-18,Graduated,Associate's,NSC,ASSOCIATE OF SCIENCE-TRANSFER,AS-T MATHEMATICS FOR TRANSFER,3405
+003f400000KvxQRAAZ,N/A,2018-01-29,2018-12-20,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3406
+003f400000KvxSEAAZ,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3565
+003f400000KvxSEAAZ,N/A,2015-08-31,2017-12-21,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3564
+N/A,001f400000LviGCAAZ,2020-01-06,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1102
+N/A,001f400000LvhpOAAR,2019-09-23,,2019-11-18,Attending,Bachelor's,NSC,,,753
+N/A,001f400000LvhpNAAR,2020-01-06,,2019-11-18,Attending,Bachelor's,NSC,,,752
+003f400000KvxVUAAZ,N/A,2017-06-19,2018-05-25,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,935
+003f400000KvxS9AAJ,N/A,2016-06-20,2016-07-28,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3213
+003f400000KvxcxAAB,N/A,2018-06-18,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3164
+003f400000KvxcxAAB,N/A,2017-09-05,2017-12-21,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3163
+003f400000KvxfsAAB,N/A,2017-09-05,2018-04-19,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3583
+003f400000TlTPgAAN,N/A,2018-09-04,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3198
+003f400000KvxRGAAZ,N/A,2019-01-28,2019-03-15,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3177
+003f400000KvxVbAAJ,N/A,2018-09-04,2019-05-24,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2302
+003f400000KvxR5AAJ,N/A,2016-08-29,2017-12-21,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,1433
+003f400000KvxR7AAJ,N/A,2016-06-20,2016-07-28,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3864
+003f400000KvxcyAAB,N/A,2018-01-29,2018-12-20,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2405
+003f400000KvxVBAAZ,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,757
+003f400000KvxVBAAZ,N/A,2017-09-05,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,756
+003f400000KvxV8AAJ,N/A,2019-09-03,2020-05-22,2019-11-18,Graduated,Associate's,NSC,ASSOCIATE OF ARTS-TRANSFER,AA-T IN COMMUNICATION STUDIES,2850
+003f400000KvxV8AAJ,N/A,2016-08-29,2018-12-20,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,2849
+003f400000KvxdrAAB,N/A,2018-01-29,2018-05-25,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3706
+003f40000169hz6AAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,650
+003f400000TlTKlAAN,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,635
+003f40000169hqmAAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2461
+003f400000KvxW7AAJ,N/A,2017-06-19,2017-07-27,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3659
+003f400000KvxV2AAJ,N/A,2018-06-18,2018-12-20,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,1301
+003f400000KvxWbAAJ,N/A,2018-09-04,2018-12-20,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,4019
+003f400000TlTKJAA3,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2127
+003f400000KvxgXAAR,N/A,2018-06-18,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,4104
+003f400000KvxQxAAJ,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,64
+003f40000169hvpAAA,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1041
+003f40000169i00AAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,4039
+003f400000KvxVQAAZ,N/A,2017-06-19,2017-07-27,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3933
+003f400000KvxRiAAJ,N/A,2018-06-18,2018-07-26,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2141
+003f400000KvxRiAAJ,N/A,2017-06-19,2017-07-27,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2140
+003f400000KvxQhAAJ,N/A,2016-08-29,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2259
+003f400000KvxV5AAJ,N/A,2018-01-29,2018-05-25,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,2234
+003f40000169hsEAAQ,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2549
+003f400000KvxRQAAZ,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2738
+003f400000KvxQYAAZ,N/A,2018-01-29,2018-05-25,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3489
+003f400000KvxRAAAZ,N/A,2018-09-04,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3610
+003f400000KvxRAAAZ,N/A,2016-02-01,2016-05-27,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3608
+003f400000KvxRAAAZ,N/A,2017-01-30,2017-05-26,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3609
+003f400000KvxQdAAJ,N/A,2018-01-29,2018-05-25,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3338
+003f400000KvxWhAAJ,N/A,2017-09-05,2017-12-21,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,292
+003f40000169hvjAAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3069
+003f400000KvxgLAAR,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,4174
+003f400000KvxgLAAR,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,4173
+003f400000TlTMvAAN,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3395
+003f400000TlTMWAA3,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2528
+003f40000169hqpAAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,189
+003f400000KvxdWAAR,N/A,2018-06-18,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3829
+003f400000KvxdbAAB,N/A,2019-01-28,2019-05-24,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,107
+003f400000KvxdbAAB,N/A,2017-09-05,2018-05-25,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,106
+003f400000KvxQfAAJ,N/A,2016-06-20,2016-07-28,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,1277
+003f400000KvxddAAB,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,763
+003f400000KvxddAAB,N/A,2019-01-28,2019-05-24,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,762
+003f400000KvxUsAAJ,N/A,2017-06-19,2017-07-27,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,4086
+003f400000TlTSvAAN,N/A,2018-09-04,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2840
+003f400000KvxRoAAJ,N/A,2016-06-20,2016-07-28,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3291
+003f40000169i0kAAA,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3778
+003f40000169hrbAAA,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2449
+003f400000KvxQvAAJ,N/A,2017-01-30,2017-05-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,218
+003f40000169uETAAY,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,190
+003f400000KvxRXAAZ,N/A,2015-08-31,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2971
+003f400000TlTPiAAN,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,759
+003f400000KvxfnAAB,N/A,2017-09-05,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2338
+003f400000KvxftAAB,N/A,2019-01-28,2019-05-24,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,2956
+003f400000KvxczAAB,N/A,2017-09-05,2019-12-19,2019-11-18,Graduated,Associate's,NSC,ASSOCIATE OF SCIENCE-TRANSFER,AS-T MATHEMATICS FOR TRANSFER,409
+003f400000TlTPnAAN,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2089
+003f400000KvxdRAAR,N/A,2017-09-05,2018-05-17,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2423
+003f400000KvxVZAAZ,N/A,2018-09-04,2018-12-20,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,1674
+003f40000169hupAAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3898
+003f400000KvxdgAAB,N/A,2018-09-04,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2382
+003f400000KvxWGAAZ,N/A,2018-06-18,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,2036
+003f400000KvxVOAAZ,N/A,2017-09-05,2018-05-25,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2590
+003f400000KvxV0AAJ,N/A,2018-01-29,2018-05-25,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,1559
+003f400000KvxVdAAJ,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,17
+003f400000KvxVdAAJ,N/A,2017-06-19,2017-07-27,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,16
+003f400001EuTsRAAV,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3879
+003f400000KvxWaAAJ,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2858
+003f400000KvxWaAAJ,N/A,2018-01-29,2018-05-25,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,2857
+003f400000KvxWaAAJ,N/A,2016-08-29,2017-05-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,2856
+003f400000KvxfqAAB,N/A,2017-09-05,2019-05-24,2019-11-18,Graduated,Associate's,NSC,ASSOCIATE OF ARTS-TRANSFER,AA-T PSYCHOLOGY FOR TRANSFER,390
+003f40000169hrnAAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2466
+003f400000TlTQ5AAN,N/A,2018-09-04,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3946
+003f400000KvxRcAAJ,N/A,2017-09-05,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,566
+003f400000KvxdcAAB,N/A,2018-06-18,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2030
+003f40000169hwCAAQ,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1005
+003f400000KvxdoAAB,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3963
+003f400000KvxdoAAB,N/A,2018-06-18,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3962
+003f400000Kvxd8AAB,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,364
+003f400000Kvxd8AAB,N/A,2017-09-05,2018-07-26,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,363
+003f40000169uEdAAI,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,237
+003f40000169hrrAAA,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,613
+003f400000KvxUtAAJ,N/A,2018-06-18,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,327
+003f400000KvxUtAAJ,N/A,2017-06-19,2017-07-27,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,326
+003f400000KvxQQAAZ,N/A,2017-06-19,2017-07-27,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,933
+003f400000KvxfyAAB,N/A,2017-09-05,2018-05-25,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2088
+003f400000TlTPsAAN,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2852
+003f40000169hrYAAQ,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,338
+003f400000TlTPIAA3,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1583
+003f400000KvxRyAAJ,N/A,2018-01-29,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,564
+003f400000KvxRyAAJ,N/A,2017-01-30,2017-05-26,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,563
+003f400000OdnFYAAZ,N/A,2018-09-04,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2575
+003f400000KvxWjAAJ,N/A,2018-01-29,2018-05-25,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,776
+003f400000KvxQXAAZ,N/A,2018-09-04,2018-12-20,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2659
+003f400000Kvxe5AAB,N/A,2018-06-18,2019-05-24,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,4202
+003f40000169uERAAY,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,405
+003f400000KvxfiAAB,N/A,2017-09-05,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2479
+003f400000TlTL3AAN,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3665
+003f40000169hqWAAQ,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,860
+003f400000KvyByAAJ,N/A,2018-09-04,2019-05-24,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3910
+003f400000KvyByAAJ,N/A,2017-09-05,2017-12-21,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3909
+003f400000KvxVFAAZ,N/A,2017-09-05,2017-12-21,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,1395
+003f400000KvxVFAAZ,N/A,2016-08-29,2016-12-15,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,1394
+003f400000KvxVeAAJ,N/A,2017-01-30,2017-05-26,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2450
+003f400000KvxdQAAR,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,147
+003f400000KvxVoAAJ,N/A,2018-09-04,2019-05-24,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,4102
+003f40000169hvFAAQ,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3144
+003f400000Kvxe3AAB,N/A,2018-06-18,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,419
+003f400000KvxQUAAZ,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1833
+003f400000KvxQUAAZ,N/A,2018-09-04,2018-12-20,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,1832
+003f400000KvxVGAAZ,N/A,2018-09-04,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3570
+003f400000TlTKDAA3,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2256
+003f400000KvxWXAAZ,N/A,2018-09-04,2020-05-22,2019-11-18,Graduated,Associate's,NSC,ASSOCIATE OF ARTS-TRANSFER,AA-T PSYCHOLOGY FOR TRANSFER,2560
+003f400000KvxWXAAZ,N/A,2017-01-30,2017-12-21,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2559
+003f40000169i0sAAA,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1649
+003f400000KvxdlAAB,N/A,2017-09-05,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1945
+003f400000KvxVRAAZ,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,55
+003f400000KvxVRAAZ,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,54
+003f400000KvxVRAAZ,N/A,2018-01-29,2018-12-20,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,53
+003f400000KvxVRAAZ,N/A,2017-01-30,2017-05-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,52
+003f400000KvxWNAAZ,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2136
+003f400000KvxWNAAZ,N/A,2018-01-29,2018-12-20,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2135
+003f40000169hxTAAQ,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,402
+003f400000KvxUkAAJ,N/A,2016-08-29,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1734
+003f400000KvyA3AAJ,N/A,2017-06-19,2017-07-27,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,943
+003f400000KvxUlAAJ,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2342
+003f400000KvxdMAAR,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2798
+003f400000KvxdMAAR,N/A,2018-06-18,2018-07-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,2797
+003f400000KvxQZAAZ,N/A,2016-08-29,2016-12-15,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,1284
+003f40000169i0oAAA,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,406
+003f400000TlTLYAA3,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,61
+003f40000169hyxAAA,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1639
+003f400000KvxJ6AAJ,N/A,2014-01-02,2014-01-27,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,4107
+003f400000KvxgJAAR,N/A,2017-09-05,2019-05-24,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,1045
+003f40000169uEZAAY,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1051
+003f400000Kvxd0AAB,N/A,2018-09-04,2018-12-20,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,2031
+003f400000KvxRIAAZ,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1323
+003f400000KvxRIAAZ,N/A,2018-09-04,2018-12-20,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,1322
+003f400000KvxRIAAZ,N/A,2015-08-31,2017-05-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,1321
+003f400000KvxeBAAR,N/A,2017-09-05,2018-05-25,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,1683
+003f400000KvxdXAAR,N/A,2017-09-05,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1738
+003f400000KvxQmAAJ,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,4160
+003f400000KvxWPAAZ,N/A,2018-01-29,2018-05-25,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,550
+003f400000KvxfrAAB,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,3638
+003f400000KvxfrAAB,N/A,2018-01-29,2018-05-25,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3637
+003f400000TlTRZAA3,N/A,2018-09-04,2018-12-20,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,3823
+003f400000KvxQgAAJ,N/A,2016-06-20,2016-12-15,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3002
+003f400000TlTMoAAN,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,21
+003f400000KvxQPAAZ,N/A,2017-01-30,2017-05-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,353
+003f40000169uEQAAY,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2293
+003f400000TlTSpAAN,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2734
+003f400000TlTLNAA3,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,201
+003f400000KvxUgAAJ,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1250
+003f400000KvxdxAAB,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1535
+003f400000TlTPqAAN,N/A,2019-09-03,2019-10-14,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,1139
+003f400000KvxgSAAR,N/A,2019-09-03,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1692
+003f400000KvxSQAAZ,N/A,2017-01-30,2017-05-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,3244
+003f400000Kvxd3AAB,N/A,2018-09-04,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1836
+003f400000TlTP8AAN,N/A,2020-06-15,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,730
+003f400000TlTP8AAN,N/A,2019-06-17,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,729
+003f400000KvxRMAAZ,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,443
+003f400000KvxRMAAZ,N/A,2017-01-30,2017-05-26,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,442
+003f400000KvxRMAAZ,N/A,2016-02-01,2016-07-28,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,441
+003f400000KvxQkAAJ,N/A,2017-06-19,2017-07-27,2019-11-18,Transferred out,Associate's or Certificate (TBD),NSC,,,571
+003f400000KvxVfAAJ,N/A,2020-01-27,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,1372
+003f400000KvxREAAZ,N/A,2019-01-28,,2019-11-18,Attending,Associate's or Certificate (TBD),NSC,,,2723
+003f400000KvxdHAAR,N/A,2018-01-29,2019-11-25,2019-11-18,Withdrew,Associate's or Certificate (TBD),NSC,,,2825
