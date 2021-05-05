@@ -102,3 +102,11 @@ $RECYCLE.BIN/
 *.lnk
 botutils/ADB/ssfLogin.py
 *.json
+
+**data/*.csv
+
+new_enr_*.csv
+con_long*.csv
+enr_update*.csv
+con_update*.csv
+missing_*.csv
