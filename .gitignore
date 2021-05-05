@@ -110,3 +110,4 @@ con_long*.csv
 enr_update*.csv
 con_update*.csv
 missing_*.csv
+data/import_nsc_output.csv
