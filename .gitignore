@@ -102,3 +102,10 @@ $RECYCLE.BIN/
 *.lnk
 botutils/ADB/ssfLogin.py
 *.json
+new_enr_06_07_2021.csv
+import_nsc_output.csv
+enr_update_TEST_06072021.csv
+enr_update_06_07_2021.csv
+enr_update_04_29_2021.csv
+con_update_06_07_2021.csv
+con_long_06_07_2021.csv
