@@ -2627,7 +2627,7 @@ OPEID,NCESID,Name,State,Control,Institution Name,City
 3088800,392840,Watkins College of Art Design & Film,Tennessee,Private not-for-profit,Watkins College of Art Design & Film,Nashville
 4118400,393180,Chicago ORT Technical Institute,Illinois,Private not-for-profit,Chicago ORT Technical Institute,Skokie
 2282300,393524,Alhambra Beauty College,California,Private for-profit,Alhambra Beauty College,Alhambra
-3969600,393649,American Auto Institute,California,Private for-profit,American Auto Institute,Gardena
+3969600,393649,UEI College - Cerritos,California,Private for-profit,American Auto Institute,Gardena
 2595600,393861,Asian American International Beauty College,California,Private for-profit,Asian American International Beauty College,Westminster
 2553600,395690,Diversified Language Institute,California,Private for-profit,Diversified Language Institute,Los Angeles
 3308300,397270,Kensington College,California,Private for-profit,Bristol University,Anaheim
@@ -7498,3 +7498,4 @@ OPEID,NCESID,Name,State,Control,Institution Name,City
 4253400,489201,Clovis Community College (CA),California,Public,Clovis Community College,Fresno
 112701,110370,California College of the Arts,California,Private not-for-profit,California College of the Arts,Oakland
 502600,242635,INTER AMERICAN UNIV OF PUERTO RICO- AREC,PR,Private not-for-profit,Inter American University of Puerto Rico-Arecibo,Arecibo
+3969604,,UEI College - Tacoma,Washington,"Private for-profit, less than 2-year",UEI College - Tacoma,Tacoma

@@ -92,7 +92,8 @@ def main(nsc, db_flag, enr, con, acc):
     enr_update = [[e.Id, e.Start_Date__c, e.End_Date__c,
                   e.Date_Last_Verified__c, e.Status__c,
                   e.Degree_Type__c, e.Data_Source__c,
-                  e.Degree_Text__c, e.Major_Text__c, 'Index (for debugging)']]
+                  e.Degree_Text__c, e.Major_Text__c, 
+                  e.Enrollment_Status__c, 'Index (for debugging)']]
     new_enr_list = em.get_enr_field_list()
     new_enr_list.append('Index (for debugging)')
     new_enr = [new_enr_list]

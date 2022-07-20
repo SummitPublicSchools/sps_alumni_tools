@@ -36,6 +36,7 @@ def getEnrollmentFields_Full(sf, restriction = ''):
                 e.Major_Text__c ,
                 e.Withdrawal_reason__c ,
                 e.Withdrawal_code__c ,
+                e.Enrollment_Status__c,
             ]
     return _getEnrollmentFields(sf, fields, restriction)
 

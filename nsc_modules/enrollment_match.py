@@ -31,6 +31,7 @@ def get_enr_field_list(from_db=False):
             e.Data_Source__c,
             e.Degree_Text__c,
             e.Major_Text__c,
+            e.Enrollment_Status__c,
             ]
     if from_db:
         fl.extend([e.Id, e.Withdrawal_reason__c, e.Withdrawal_code__c])
