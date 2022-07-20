@@ -102,6 +102,7 @@ $RECYCLE.BIN/
 *.lnk
 botutils/ADB/ssfLogin.py
 *.json
+
 # No PII
 *data/*.csv
 con_*.csv
@@ -109,3 +110,6 @@ con_*.csv
 **new_enr*.csv
 **10055266hsst*.csv
 **import_nsc_output.csv
+
+.ipynb_checkpoints/
+
