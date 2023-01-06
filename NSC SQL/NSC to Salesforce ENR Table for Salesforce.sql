@@ -1,5 +1,8 @@
 /* enr_update_12_21_2022 */
-
+/* lead and lag for some students gets messed up... these two should be part of the same island I think. s
+10853_004480-001	DE ANZA COLLEGE	6/30/2017	4/9/2018	9/26/2018
+10853_004480-002	DE ANZA COLLEGE	4/24/2018	4/9/2018	9/26/2018
+*/
 --set the definition of continuous enrollment by setting the max number of days spanning bouts of enrollment.
 SET enrollment_gap = 131;
 ---SET BA_schools_without_degrees = ;
@@ -173,8 +176,8 @@ step7_overlap_check AS (
             WHEN End_Date__c >= Next_Start_Date__c
                 AND College_Text__c = Next_Start_Name__c
             THEN 'OVERLAPPING' ELSE 'DISCRETE' END                                             AS OverlapTest,
-        MIN(Start_Date__c) OVER (PARTITION BY your_unique_identifier, college_code_branch) AS Start_Date_fin,
-        MAX(End_Date__c) OVER (PARTITION BY your_unique_identifier, college_code_branch) AS End_Date_fin
+        MIN(Start_Date__c) OVER (PARTITION BY id) AS Start_Date_fin,
+        MAX(End_Date__c) OVER (PARTITION BY id) AS End_Date_fin
     FROM step6_date_islands)
 
 SELECT id                                                          AS Id,
