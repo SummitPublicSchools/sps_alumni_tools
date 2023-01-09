@@ -179,19 +179,19 @@ step7_overlap_check AS (
         MIN(Start_Date__c) OVER (PARTITION BY id) AS Start_Date_fin,
         MAX(End_Date__c) OVER (PARTITION BY id) AS End_Date_fin
     FROM step6_date_islands)
-
-SELECT id                                                          AS Id,
-       College_Text__c,
-       Previous_End_Date__c,
-       Start_Date_fin                                              AS Start_Date__c,
-       End_Date_fin                                                AS End_Date__c,
-       Next_Start_Date__c,
-       Date_Last_Verified__c,
-       Status__c,
-       Degree_Type__c2                                             AS Degree_Type__c,
-       Data_Source__c,
-       Degree_Text__c,
-       major_Text__c,
-       row_number() OVER (ORDER BY Id, Start_Date__c, End_Date__c) AS Index_For_Debugging
+SELECT
+    id                                                          AS Id,
+    College_Text__c,
+    Previous_End_Date__c,
+    Start_Date_fin                                              AS Start_Date__c,
+    End_Date_fin                                                AS End_Date__c,
+    Next_Start_Date__c,
+    Date_Last_Verified__c,
+    Status__c,
+    Degree_Type__c2                                             AS Degree_Type__c,
+    Data_Source__c,
+    Degree_Text__c,
+    major_Text__c,
+    row_number() OVER (ORDER BY Id, Start_Date__c, End_Date__c) AS Index_For_Debugging
 FROM step7_overlap_check
 ORDER BY Id, Start_Date__c, End_Date__c
