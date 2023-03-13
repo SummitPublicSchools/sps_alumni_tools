@@ -1,21 +1,42 @@
 WITH
-    joined_enrollments AS (
-        SELECT *
+    graduates_with_info AS (
+        SELECT
+            g.student_id
+          , graduation_date
+          , s.first_name
+          , s.last_name
+          , s.federal_race
+          , s.gender
+          , s.is_sed AS was_sed
+          , s.is_ell AS was_ell
+          , s.has_iep AS had_iep
+          , g.site_short_name AS high_school_name
+          , g.site_id AS high_school_id
+          , g.graduation_year AS hs_graduation_year
         FROM
-            main.national_student_clearinghouse.clean_data_2022_12_05
-        UNION
-        SELECT *
-        FROM
-            main.national_student_clearinghouse.clean_data_2021_04_16
-        UNION
-        SELECT *
-        FROM
-            main.national_student_clearinghouse.clean_data_2020_04_22
-        UNION
-        SELECT *
-        FROM
-            main.national_student_clearinghouse.clean_data_2019_04_15
+            main.public.graduates AS g
+            LEFT JOIN main.public.students_historical AS s
+                ON g.student_id = s.student_id
+        WHERE
+            s.school_date = g.graduation_date
     )
+  , joined_enrollments AS (
+    SELECT *
+    FROM
+        main.national_student_clearinghouse.clean_data_2022_12_05
+    UNION
+    SELECT *
+    FROM
+        main.national_student_clearinghouse.clean_data_2021_04_16
+    UNION
+    SELECT *
+    FROM
+        main.national_student_clearinghouse.clean_data_2020_04_22
+    UNION
+    SELECT *
+    FROM
+        main.national_student_clearinghouse.clean_data_2019_04_15
+)
   , removing_duplicates AS (
     SELECT DISTINCT *
     FROM
@@ -90,7 +111,7 @@ WITH
   , rejoining_long_enrollments AS (
     SELECT
         id
-      , your_unique_identifier
+      , TRIM(your_unique_identifier, '_') AS your_unique_identifier
       , college_text__c
       , previous_end_date__c
       , start_date__c
@@ -118,7 +139,7 @@ WITH
     UNION ALL
     SELECT
         id
-      , your_unique_identifier
+      , TRIM(your_unique_identifier, '_') AS your_unique_identifier
       , college_text__c
       , previous_end_date__c
       , start_date__c
@@ -169,6 +190,8 @@ WITH
               , MAX(
                 major_text__c) AS major_text__c
               , MAX(
+                  academic_year) AS academic_year
+              , MAX(
                 index_for_debugging) AS index_for_debugging
             FROM
                 rejoining_long_enrollments
@@ -176,6 +199,28 @@ WITH
                 your_unique_identifier
               , semester_ay
         )
-SELECT *
+SELECT
+    sla.date_last_verified__c AS as_of
+  , your_unique_identifier AS student_id
+  , g.first_name
+  , g.last_name
+  , g.federal_race
+  , g.gender
+  , was_sed
+  , was_ell
+  , had_iep
+  , high_school_name
+  , high_school_id
+  , hs_graduation_year
+  , sla.academic_year
+  , semester_ay AS term
+  , status__c AS enrollment_status
+  , college_text__c AS college_name
+---,college_type
+---,college_funding
+---,college_code
 FROM
-    semester_level_aggregation
+    semester_level_aggregation as sla
+    LEFT JOIN graduates_with_info AS g
+        ON sla.your_unique_identifier = g.student_id
+
