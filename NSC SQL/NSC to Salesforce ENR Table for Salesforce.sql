@@ -1,15 +1,5 @@
-/* enr_update_12_21_2022 */
-/* lead and lag for some students gets messed up... these two should be part of the same island I think. s
-10853_004480-001	DE ANZA COLLEGE	6/30/2017	4/9/2018	9/26/2018
-10853_004480-002	DE ANZA COLLEGE	4/24/2018	4/9/2018	9/26/2018
-*/
-
-/*
- Trying to sort out an issue with overlapping spans of time. They aren't being collapsed together and it creates
- funny behavior down stream.
- */
---set the definition of continuous enrollment by setting the max number of days spanning bouts of enrollment.
-SET enrollment_gap = 131;
+SET date_updated = '2021/04/16';
+SET enrollment_gap=131;
 ---SET BA_schools_without_degrees = ;
 ---SET Assoc_schools_without_degrees = () ;
 /* Creates a table with dates converted and generates column for previous date of enrollment.
@@ -73,8 +63,8 @@ WITH
 /* step 3 does a bunch:
    - pares down the table to fewer columns
    - generates standardized degree variable,
-   - generates a few other useful vars */ step3
-        AS (
+   - generates a few other useful vars */
+    step3 AS (
         SELECT
             --1. generates the row-level identifier
             CONCAT(your_unique_identifier, college_code_branch, islandid) AS id
@@ -84,7 +74,7 @@ WITH
           , MIN(begin) OVER (PARTITION BY id) AS start_date__c
           , MAX(end) OVER (PARTITION BY id) AS end_date__c
             -- 4. grabs the current date of the machine */
-          , CURRENT_DATE AS date_last_verified__c
+          , $date_updated AS date_last_verified__c
           ,
             /* 5 determines degree type using basic regexp/contains function
             For now, these are the types represented, may need to add EdD, MD, PhD etc later*/
@@ -187,9 +177,9 @@ WITH
             LEFT JOIN gradstatus
                 ON step4_unique_records.id = gradstatus.id2
     )
-  , breakpoint_data AS (
+  , step6_islands_overlaps AS (
     SELECT *
-         , ROW_NUMBER() OVER (ORDER BY id, start_date__c) AS masterordering
+         , ROW_NUMBER() OVER (ORDER BY your_unique_identifier, college_text__c, start_date__c) AS masterordering
          , LAG(start_date__c)
                OVER (PARTITION BY your_unique_identifier, college_text__c ORDER BY start_date__c ASC) AS previousstart
          , LAG(end_date__c)
@@ -197,68 +187,71 @@ WITH
     FROM
         step5_joining_grad_status
 )
-  , parentchild AS (
+  , step7_overlapping_dates AS (
     SELECT *
          , CASE
                WHEN previousstart IS NULL AND previousend IS NULL THEN masterordering
                WHEN previousend NOT BETWEEN start_date__c AND end_date__c THEN masterordering
                ELSE 0
-           END AS parent
+           END AS parent --- if has value other than 0, it's a start date or stand-alone for some bout of enrollment
     FROM
-        breakpoint_data
+        step6_islands_overlaps
 )
-  , family AS (
-    SELECT
-        masterordering
-      , id
-      , grad_correct
-      , enrollment_status
-      , college_text__c
-      , your_unique_identifier
-      , start_date__c
-      , end_date__c
-      , previousstart
-      , previousend
-      , parent
-      , date_last_verified__c
-      , degree_type__c2 AS degree_type__c
-      , data_source__c
-      , degree_text__c
-      , major_text__c
-    FROM
-        parentchild
-    WHERE
-        parent > 0
-)
-  , family2 AS (
-    SELECT *
-    FROM
-        family
-    UNION ALL
-    SELECT
-        a.masterordering
-      , a.id
-      , a.grad_correct
-      , a.enrollment_status
-      , a.your_unique_identifier
-      , a.college_text__c
-      , a.start_date__c
-      , a.end_date__c
-      , a.previousstart
-      , a.previousend
-      , f.parent
-      , a.date_last_verified__c
-      , a.degree_type__c
-      , a.data_source__c
-      , a.degree_text__c
-      , a.major_text__c
-    FROM
-        parentchild AS a
-        INNER JOIN family AS f
-            ON (a.masterordering = f.masterordering + 1
-        AND a.parent = 0)
-)
-  , overlap_last_step AS (
+  , step8_overlap_parents AS ---pulls out just records that are starts---
+        (
+            SELECT
+                masterordering
+              , id
+              , grad_correct
+              , enrollment_status
+              , your_unique_identifier
+              , college_text__c
+              , start_date__c
+              , end_date__c
+              , previousstart
+              , previousend
+              , parent
+              , date_last_verified__c
+              , degree_type__c2 AS degree_type__c
+              , data_source__c
+              , degree_text__c
+              , major_text__c
+            FROM
+                step7_overlapping_dates
+            WHERE
+                parent > 0
+        )
+  , step9_union_for_overlaps AS --a recursive eof that's supposed to stack 'parent' records
+---and 'child' records.
+        (
+            SELECT *
+            FROM
+                step8_overlap_parents
+            UNION ALL
+            SELECT
+                a.masterordering
+              , a.id
+              , a.grad_correct
+              , a.enrollment_status
+              , a.your_unique_identifier
+              , a.college_text__c
+              , a.start_date__c
+              , a.end_date__c
+              , a.previousstart
+              , a.previousend
+              , f.parent
+              , a.date_last_verified__c
+              , a.degree_type__c
+              , a.data_source__c
+              , a.degree_text__c
+              , a.major_text__c
+            FROM
+                step7_overlapping_dates AS a
+                INNER JOIN step8_overlap_parents AS f
+                    ON (a.masterordering = f.masterordering + 1
+                AND a.parent = 0)
+        )
+  , step10_overlapfinish AS (
     SELECT
         MAX(date_last_verified__c) AS date_last_verified__c
       , your_unique_identifier
@@ -273,10 +266,10 @@ WITH
       , MIN(masterordering) AS masterordering
       , MIN(start_date__c) AS start_date__c
       , MAX(end_date__c) AS end_date__c
-      , MAX(previousstart) AS previousstart
-      , MIN(previousend) AS previousend
+      , MAX(previousstart) AS previous_start_date__c
+      , MIN(previousend) AS previous_end_date__c
     FROM
-        family2
+        step9_union_for_overlaps
     GROUP BY
         your_unique_identifier
       , parent
@@ -285,95 +278,50 @@ WITH
 )
 /* just handling the lead and lag dates and associated information to
     determine enrollment status         */
-, step6_date_islands AS (
+  , step11_enrollmentstatus AS (
     SELECT *
-      , LAG(end_date__c) OVER (PARTITION BY your_unique_identifier ORDER BY start_date__c, end_date__c) AS previous_end_date__c
-      , LEAD(
-    start_date__c
-        , 1) OVER (
-        PARTITION BY your_unique_identifier
-        ORDER BY start_date__c
-            , end_date__c) AS next_start_date__c
-         , LAG(
-    college_text__c) OVER (
-        PARTITION BY your_unique_identifier
-        ORDER BY start_date__c
-            , end_date__c) AS previous_end_name__c
-         , LEAD(
-    college_text__c
-        , 1) OVER (
-        PARTITION BY your_unique_identifier
-        ORDER BY start_date__c
-            , end_date__c) AS next_start_name__c
-         , DATEDIFF(
-    DAYS
-        , end_date__c
-        , next_start_date__c) AS daysgap
+         , LEAD(start_date__c, 1)
+                OVER (PARTITION BY your_unique_identifier ORDER BY start_date__c, end_date__c) AS next_start_date__c
+         , LAG(college_text__c)
+               OVER (PARTITION BY your_unique_identifier ORDER BY start_date__c, end_date__c) AS previous_end_name__c
+         , LEAD(college_text__c, 1)
+                OVER (PARTITION BY your_unique_identifier ORDER BY start_date__c, end_date__c) AS next_start_name__c
+         , DATEDIFF(DAYS, end_date__c, next_start_date__c) AS daysgap
          , CASE
                WHEN grad_correct = 'Y' THEN 'Graduated'
                WHEN enrollment_status = 'W' THEN 'Withdrew'
-               WHEN grad_correct = 'N'
-               AND daysgap
-                   < $enrollment_gap
+               WHEN grad_correct = 'N' AND daysgap < $enrollment_gap AND next_start_name__c NOT LIKE college_text__c
                    THEN 'Transferred Within 131 days' /* option to change days that count as extended gap */
-               WHEN grad_correct = 'N' AND
-                   daysgap
-                   > $enrollment_gap
-                   THEN 'Transferred After 131 days'
+               WHEN grad_correct = 'N' AND daysgap > $enrollment_gap THEN 'Transferred After 131 days'
                WHEN grad_correct = 'N' AND next_start_date__c IS NULL THEN 'Withdrew'
                WHEN grad_correct = 'N' AND enrollment_status = 'F' THEN 'Enrolled Full-time'
                WHEN grad_correct = 'N' AND enrollment_status = 'H' THEN 'Enrolled Half-time'
                WHEN grad_correct = 'N' AND enrollment_status = 'Q' THEN 'Enrolled Three Quarter-time'
                WHEN grad_correct = 'N' AND enrollment_status = 'L' THEN 'Enrolled Less Than Half-time'
                WHEN grad_correct = 'N' AND enrollment_status = 'A' THEN 'On Leave'
-               ELSE ''
+               ELSE 'Enrolled (No Detail)'
            END AS status__c
     FROM
-        overlap_last_step
+        step10_overlapfinish
 )
-  , step7_overlap_check
-        AS (
-        SELECT *
-            /* This identifies overlapping stints at the same school
-            In this example, only one student had issues*/
-             , CASE
-                   WHEN start_date__c <= previous_end_date__c
-                   AND college_text__c = previous_end_name__c
-                       THEN 'OVERLAPPING'
-                   WHEN end_date__c >= next_start_date__c
-                   AND college_text__c = next_start_name__c
-                       THEN 'OVERLAPPING'
-                   ELSE 'DISCRETE'
-               END AS overlaptest
-             , MIN(
-        start_date__c) OVER (
-            PARTITION BY id) AS start_date_fin
-             , MAX(
-        end_date__c) OVER (
-            PARTITION BY id) AS end_date_fin
-        FROM
-            step6_date_islands
-    )
 SELECT
     id AS id
+  , your_unique_identifier
   , college_text__c
   , previous_end_date__c
-  , start_date_fin AS start_date__c
-  , end_date_fin AS end_date__c
+  , start_date__c AS start_date__c
+  , end_date__c AS end_date__c
   , next_start_date__c
   , daysgap
-  , overlaptest
   , date_last_verified__c
   , status__c
-  , degree_type__c2 AS degree_type__c
+  , degree_type__c
   , data_source__c
   , degree_text__c
   , major_text__c
   , ROW_NUMBER() OVER (ORDER BY id, start_date__c, end_date__c) AS index_for_debugging
 FROM
-    step7_overlap_check
+    step11_enrollmentstatus
 ORDER BY
-    id
+    your_unique_identifier
   , start_date__c
-  , end_date__c
-
