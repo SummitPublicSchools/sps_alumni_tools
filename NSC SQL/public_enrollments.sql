@@ -1,3 +1,5 @@
+CREATE OR REPLACE TABLE main.public.college_enrollments
+AS
 WITH
     graduates_with_info AS (
         SELECT
@@ -72,6 +74,9 @@ WITH
         id
       , your_unique_identifier
       , college_text__c
+      , college_code_branch
+      , public_private AS college_funding
+      , _2_year_4_year AS college_type
       , previous_end_date__c
       , start_date__c
       , end_date__c
@@ -79,7 +84,6 @@ WITH
       , daysgap
       , date_last_verified__c
       , status__c
-      , degree_type__c
       , data_source__c
       , degree_text__c
       , major_text__c
@@ -91,6 +95,9 @@ WITH
         id
       , your_unique_identifier
       , college_text__c
+      , college_code_branch
+      , college_funding
+      , college_type
       , previous_end_date__c
       , DATEADD(MONTH, 4.5, start_date__c) AS newstart
       , end_date__c
@@ -98,7 +105,6 @@ WITH
       , daysgap
       , date_last_verified__c
       , status__c
-      , degree_type__c
       , data_source__c
       , degree_text__c
       , major_text__c
@@ -113,6 +119,9 @@ WITH
         id
       , TRIM(your_unique_identifier, '_') AS your_unique_identifier
       , college_text__c
+      , college_code_branch
+      , college_funding
+      , college_type
       , previous_end_date__c
       , start_date__c
       , DATEADD(MONTH, 4.5, start_date__c) AS end_date__c
@@ -120,7 +129,6 @@ WITH
       , daysgap
       , date_last_verified__c
       , status__c
-      , degree_type__c
       , data_source__c
       , degree_text__c
       , major_text__c
@@ -141,6 +149,9 @@ WITH
         id
       , TRIM(your_unique_identifier, '_') AS your_unique_identifier
       , college_text__c
+      , college_code_branch
+      , public_private as college_funding
+      , _2_year_4_year AS college_type
       , previous_end_date__c
       , start_date__c
       , end_date__c
@@ -148,7 +159,6 @@ WITH
       , daysgap
       , date_last_verified__c
       , status__c
-      , degree_type__c
       , data_source__c
       , degree_text__c
       , major_text__c
@@ -173,6 +183,10 @@ WITH
               , semester_ay
               , MAX(
                 college_text__c) AS college_text__c
+              , MAX(
+                college_code_branch) AS college_code
+              , MAX(college_type) AS college_type
+              , MAX(college_funding) AS college_funding
               , MIN(
                 start_date__c) AS start_date
               , MAX(
@@ -184,13 +198,11 @@ WITH
               , MAX(
                 status__c) AS status__c
               , MAX(
-                degree_type__c) AS degree_type__c
-              , MAX(
                 degree_text__c) AS degree_text__c
               , MAX(
                 major_text__c) AS major_text__c
               , MAX(
-                  academic_year) AS academic_year
+                academic_year) AS academic_year
               , MAX(
                 index_for_debugging) AS index_for_debugging
             FROM
@@ -216,11 +228,11 @@ SELECT
   , semester_ay AS term
   , status__c AS enrollment_status
   , college_text__c AS college_name
----,college_type
----,college_funding
----,college_code
+  , college_type
+  , college_funding AS public_private
+  , college_code AS college_code
 FROM
-    semester_level_aggregation as sla
+    semester_level_aggregation AS sla
     LEFT JOIN graduates_with_info AS g
         ON sla.your_unique_identifier = g.student_id
 
