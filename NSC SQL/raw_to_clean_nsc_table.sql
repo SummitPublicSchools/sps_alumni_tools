@@ -76,12 +76,11 @@ AS WITH
             GROUP BY
                 id2
         )
-   ,
 /* step 3 does a bunch:
    - pares down the table to fewer columns
    - generates standardized degree variable,
    - generates a few other useful vars */
-    step3 AS (
+ ,   step3 AS (
         SELECT
             --1. generates the row-level identifier
             CONCAT(your_unique_identifier, college_code_branch, islandid) AS id
@@ -96,8 +95,8 @@ AS WITH
             /* 5. change data source if that's ever necessary */
         ,    'National Student Clearinghouse' AS data_source__c
             /* 6. grabs full text of degree and major */
-          , max(degree_title) over (partition by id,  degree_text__c
-          , major as major_text__c
+          , max(degree_title) over (partition by id) AS degree_text__c
+          , major AS major_text__c
           , MAX(college_name) OVER (PARTITION BY id) AS college_text__c
           , enrollment_status
           , your_unique_identifier
@@ -267,9 +266,12 @@ AS WITH
          , CASE
                WHEN grad_correct = 'Y' THEN 'Graduated'
                WHEN enrollment_status = 'W' THEN 'Withdrew'
-               WHEN grad_correct = 'N' AND daysgap < $enrollment_gap AND next_start_name__c NOT LIKE college_text__c
+               WHEN grad_correct = 'N' AND daysgap < $enrollment_gap
+                   AND next_start_name__c NOT LIKE college_text__c
                    THEN 'Transferred Within 131 days' /* option to change days that count as extended gap */
-               WHEN grad_correct = 'N' AND daysgap > $enrollment_gap THEN 'Transferred After 131 days'
+               WHEN grad_correct = 'N' AND daysgap > $enrollment_gap
+                   AND next_start_name__c NOT LIKE college_text__c
+                   THEN 'Transferred After 131 days'
                WHEN grad_correct = 'N' AND next_start_date__c IS NULL THEN 'Withdrew'
                WHEN grad_correct = 'N' AND enrollment_status = 'F' THEN 'Enrolled Full-time'
                WHEN grad_correct = 'N' AND enrollment_status = 'H' THEN 'Enrolled Half-time'

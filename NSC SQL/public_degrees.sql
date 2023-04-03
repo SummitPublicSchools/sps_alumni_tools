@@ -113,7 +113,7 @@ WITH
   , remove_duplicate_nsc_records AS (
     SELECT
         MAX(date_last_updated) AS date_last_updated
-      , MAX(TRIM(your_unique_identifier, '_')) AS student_id
+      , TRIM(your_unique_identifier, '_') AS student_id
       , MAX(college_name) AS college_name
       , MAX(college_code_branch) AS college_code_branch
       , MAX(TO_DATE(graduation_date, 'YYYYMMDD')) AS graduation_date
@@ -124,7 +124,7 @@ WITH
     FROM
         joined_enrollments
     GROUP BY
-        your_unique_identifier
+        student_id
       , college_name
       , degree_title
 )
@@ -175,7 +175,7 @@ WITH
   , high_school_name
   , high_school_id
   , hs_graduation_year
-  , YEAR(nsc.graduation_date) as college_graduation_year
+  , public.GET_ACADEMIC_YEAR(nsc.graduation_date) as college_graduation_year
   , college_name
   , _2_year_4_year AS college_type
   , public_private AS college_funding
