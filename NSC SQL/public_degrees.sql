@@ -187,4 +187,4 @@ WITH
         graduates_with_info as grads
         LEFT JOIN degree_recode_duplicate_grad_drop as nsc
             ON grads.student_id = nsc.student_id
-
+    ORDER BY student_id, college_graduation_year
