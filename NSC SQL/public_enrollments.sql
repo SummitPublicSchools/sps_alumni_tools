@@ -248,7 +248,7 @@ WITH
                  'On Leave',
                  'Enrolled Less Than Half-time'
                     ),
-                       'Enrolled (No Detail)', status__c) AS enrollment_status
+                       'Enrolled (No Detail)', status__c) AS nsc_enrollment_status
             FROM
                 recomputed_enrollments_semester_level_step1
         )
@@ -267,7 +267,7 @@ WITH
   , hs_graduation_year
   , sla.academic_year
   , semester_ay AS term
-  , sla.enrollment_status AS enrollment_status
+  , sla.nsc_enrollment_status AS nsc_enrollment_status
   , college_text__c AS college_name
   , college_type
   , college_funding AS public_private

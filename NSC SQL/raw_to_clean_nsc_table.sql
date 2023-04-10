@@ -104,7 +104,7 @@ AS WITH
           , max(degree_title) over (partition by id) AS degree_text__c
           , major AS major_text__c
           , MAX(college_name) OVER (PARTITION BY id) AS college_text__c
-          , enrollment_status
+          , nsc_enrollment_status
           , your_unique_identifier
           , MAX(college_code_branch) OVER (PARTITION BY id) AS college_code_branch
           , MAX(_2_year_4_year) OVER (PARTITION BY id) AS _2_year_4_year
@@ -124,7 +124,7 @@ AS WITH
             (
                 SELECT
                     id
-                  , enrollment_status
+                  , nsc_enrollment_status
                   , your_unique_identifier
                   , college_code_branch
                   , public_private
@@ -179,7 +179,7 @@ AS WITH
                 masterordering
               , id
               , grad_correct
-              , enrollment_status
+              , nsc_enrollment_status
               , your_unique_identifier
               , college_text__c
               , college_code_branch
@@ -210,7 +210,7 @@ AS WITH
                 a.masterordering
               , a.id
               , a.grad_correct
-              , a.enrollment_status
+              , a.nsc_enrollment_status
               , a.your_unique_identifier
               , a.college_text__c
               , a.college_code_branch
@@ -236,7 +236,7 @@ AS WITH
         MAX(date_last_verified__c) AS date_last_verified__c
       , your_unique_identifier
       , MAX(id) AS id
-      , MAX(enrollment_status) AS enrollment_status
+      , MAX(nsc_enrollment_status) AS nsc_enrollment_status
       , MAX(grad_correct) AS grad_correct
       , MAX(college_text__c) AS college_text__c
       , MAX(college_code_branch) AS college_code_branch
@@ -271,18 +271,18 @@ AS WITH
          , DATEDIFF(DAYS, end_date__c, next_start_date__c) AS daysgap
          , CASE
                WHEN grad_correct = 'Y' THEN 'Graduated'
-               WHEN enrollment_status = 'W' THEN 'Withdrew'
+               WHEN nsc_enrollment_status = 'W' THEN 'Withdrew'
                WHEN grad_correct = 'N' AND daysgap < $enrollment_gap
                    AND next_start_name__c NOT LIKE college_text__c
                    THEN 'Transferred Within 131 days' /* option to change days that count as extended gap */
                WHEN grad_correct = 'N' AND daysgap > $enrollment_gap
                    AND next_start_name__c NOT LIKE college_text__c
                    THEN 'Transferred After 131 days'
-               WHEN grad_correct = 'N' AND enrollment_status = 'F' THEN 'Enrolled Full-time'
-               WHEN grad_correct = 'N' AND enrollment_status = 'H' THEN 'Enrolled Half-time'
-               WHEN grad_correct = 'N' AND enrollment_status = 'Q' THEN 'Enrolled Three Quarter-time'
-               WHEN grad_correct = 'N' AND enrollment_status = 'L' THEN 'Enrolled Less Than Half-time'
-               WHEN grad_correct = 'N' AND enrollment_status = 'A' THEN 'On Leave'
+               WHEN grad_correct = 'N' AND nsc_enrollment_status = 'F' THEN 'Enrolled Full-time'
+               WHEN grad_correct = 'N' AND nsc_enrollment_status = 'H' THEN 'Enrolled Half-time'
+               WHEN grad_correct = 'N' AND nsc_enrollment_status = 'Q' THEN 'Enrolled Three Quarter-time'
+               WHEN grad_correct = 'N' AND nsc_enrollment_status = 'L' THEN 'Enrolled Less Than Half-time'
+               WHEN grad_correct = 'N' AND nsc_enrollment_status = 'A' THEN 'On Leave'
                ELSE 'Enrolled (No Detail)'
            END AS status__c
     FROM
