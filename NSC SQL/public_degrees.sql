@@ -22,94 +22,63 @@ WITH
         WHERE
             s.school_date = g.graduation_date
     )
-  , raw_nsc_1 AS (
+  , joined_enrollments AS (
     SELECT *
          , '2018/11/28' AS date_last_updated
     FROM
         main.national_student_clearinghouse.raw_data_2018_11_28
-    WHERE
-        graduated = 'Y'
-)
-  , raw_nsc_2 AS (
+    UNION
     SELECT *
          , '2019/11/25' AS date_last_updated
     FROM
         main.national_student_clearinghouse.raw_data_2019_11_25
-    WHERE
-        graduated = 'Y'
-)
-  , raw_nsc_3 AS (
+    UNION
     SELECT *
          , '2019/08/17' AS date_last_updated
     FROM
         main.national_student_clearinghouse.raw_data_2019_08_17
-    WHERE
-        graduated = 'Y'
-)
-  , raw_nsc_4 AS (
+    UNION
     SELECT *
          , '2019/04/15' AS date_last_updated
     FROM
         main.national_student_clearinghouse.raw_data_2019_04_15
-    WHERE
-        graduated = 'Y'
-)
-  , raw_nsc_5 AS (
+    UNION
     SELECT *
          , '2020/04/22' AS date_last_updated
     FROM
         main.national_student_clearinghouse.raw_data_2020_04_22
-    WHERE
-        graduated = 'Y'
-)
-  , raw_nsc_6 AS (
+    UNION
+    SELECT *
+         , '2020/09/18' AS date_last_updated
+    FROM
+        main.national_student_clearinghouse.raw_data_2020_09_18
+    UNION
     SELECT *
          , '2021/04/16' AS date_last_updated
     FROM
         main.national_student_clearinghouse.raw_data_2021_04_16
-    WHERE
-        graduated = 'Y'
-)
-  , raw_nsc_7 AS (
+    UNION
+    SELECT *
+         , '2022/04/21' AS date_last_updated
+    FROM
+        main.national_student_clearinghouse.raw_data_2022_04_21
+    UNION
+    SELECT *
+         , '2022/08/30' AS date_last_updated
+    FROM
+        main.national_student_clearinghouse.raw_data_2022_08_30
+    UNION
     SELECT *
          , '2022/12/05' AS date_last_updated
     FROM
         main.national_student_clearinghouse.raw_data_2022_12_05
+    UNION
+    SELECT *
+    FROM
+        main.national_student_clearinghouse.naviance_data_all
     WHERE
         graduated = 'Y'
 )
-  , joined_enrollments AS (
-    SELECT *
-    FROM
-        raw_nsc_1
-    UNION
-    SELECT *
-    FROM
-        raw_nsc_2
-    UNION
-    SELECT *
-    FROM
-        raw_nsc_3
-    UNION
-    SELECT *
-    FROM
-        raw_nsc_4
-    UNION
-    SELECT *
-    FROM
-        raw_nsc_5
-    UNION
-    SELECT *
-    FROM
-        raw_nsc_6
-    UNION
-    SELECT *
-    FROM
-        raw_nsc_7
-)
-----at this point, the challenge is when students have two rows for graduation: one with degree, one without.
----I think what I can do is use some sort of logic in a grouped version of the data:  --
-
   , remove_duplicate_nsc_records AS (
     SELECT
         MAX(date_last_updated) AS date_last_updated
@@ -138,7 +107,7 @@ WITH
     SELECT DISTINCT *
                   , CASE
                         WHEN LIKE(degree_title, 'CERT%') OR
-                        LIKE(degree_title, '%CERT%') THEN 'Certificate'
+                            LIKE(degree_title, '%CERT%') THEN 'Certificate'
                         WHEN LIKE(degree_title, 'B%') OR
                             LIKE(degree_title, 'ACHELOR OF ARTS') THEN 'Bachelors'
                         WHEN LIKE(degree_title, 'ASSO%') OR
@@ -163,11 +132,12 @@ WITH
         NOT (rn > 1 AND degree_title IS NULL AND major IS NULL)
 )
 
-  SELECT date_last_updated as as_of
-,   grads.student_id as student_id
-,   first_name
-,   last_name
-, federal_race
+SELECT
+    date_last_updated AS as_of
+  , grads.student_id AS student_id
+  , first_name
+  , last_name
+  , federal_race
   , gender
   , was_sed
   , was_ell
@@ -175,16 +145,19 @@ WITH
   , high_school_name
   , high_school_id
   , hs_graduation_year
-  , public.GET_ACADEMIC_YEAR(nsc.graduation_date) as college_graduation_year
+  , public.get_academic_year(nsc.graduation_date) AS college_graduation_year
   , college_name
   , _2_year_4_year AS college_type
   , public_private AS college_funding
   , degree_type
-  , degree_title as degree_text
+  , degree_title AS degree_text
   , major
-  , college_code_branch as college_id
-    FROM
-        graduates_with_info as grads
-        LEFT JOIN degree_recode_duplicate_grad_drop as nsc
-            ON grads.student_id = nsc.student_id
-    ORDER BY student_id, college_graduation_year
+  , college_code_branch AS college_id
+FROM
+    graduates_with_info AS grads
+    INNER JOIN degree_recode_duplicate_grad_drop AS nsc
+        ON grads.student_id = nsc.student_id
+ORDER BY
+    hs_graduation_year
+  , student_id
+  , college_graduation_year

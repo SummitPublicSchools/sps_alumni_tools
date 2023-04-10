@@ -29,6 +29,14 @@ WITH
     UNION
     SELECT *
     FROM
+        main.national_student_clearinghouse.clean_data_2022_08_30
+    UNION
+    SELECT *
+    FROM
+        main.national_student_clearinghouse.clean_data_2022_04_21
+    UNION
+    SELECT *
+    FROM
         main.national_student_clearinghouse.clean_data_2021_04_16
     UNION
     SELECT *
@@ -37,7 +45,27 @@ WITH
     UNION
     SELECT *
     FROM
+        main.national_student_clearinghouse.clean_data_2020_09_18
+    UNION
+    SELECT *
+    FROM
         main.national_student_clearinghouse.clean_data_2019_04_15
+    UNION
+    SELECT *
+    FROM
+        main.national_student_clearinghouse.clean_data_2019_11_25
+    UNION
+     SELECT *
+    FROM
+        main.national_student_clearinghouse.clean_data_2019_08_17
+    UNION
+    SELECT *
+    FROM
+        main.national_student_clearinghouse.clean_data_2018_11_28
+     UNION
+    SELECT *
+    FROM
+        main.national_student_clearinghouse.naviance_clean_data_all
 )
   , removing_duplicates AS (
     SELECT DISTINCT *
