@@ -1,15 +1,24 @@
----SET 131=131; This doesn't work for the "view approach"
-
+SET date_updated = '2023/04/27'; ---match the date of the raw_nsc file.
+SET enrollment_gap=131;
 
 ---SET BA_schools_without_degrees = ;
 ---SET Assoc_schools_without_degrees = () ;
 /* Creates a table with dates converted and generates column for previous date of enrollment.
    Notice that there are no start/end dates for rows with graduation details. To get around this, I replace the
    begin/end date to the graduation date for the rows with grad details. */
-create or replace table main.national_student_clearinghouse.naviance_clean_data_all /*
-my naming convention is a little uninformative--could call "clean",
-continuous enrollments instead*/
-AS WITH
+---main.national_student_clearinghouse.clean_data_2018_11_28
+---main.national_student_clearinghouse.clean_data_2019_08_17
+---main.national_student_clearinghouse.clean_data_2019_04_15
+---main.national_student_clearinghouse.clean_data_2019_11_25
+---main.national_student_clearinghouse.clean_data_2020_04_22
+---main.national_student_clearinghouse.clean_data_2020_09_18
+---main.national_student_clearinghouse.clean_data_2021_04_16
+---main.national_student_clearinghouse.clean_data_2022_04_21
+---main.national_student_clearinghouse.clean_data_2022_08_30
+---main.national_student_clearinghouse.clean_data_2022_12_05
+---national_student_clearinghouse.clean_data_2023_04_27
+create or replace table national_student_clearinghouse.clean_data_2023_04_27 AS 
+WITH
     step1_datetransforms AS (
         SELECT *
              , CASE
@@ -30,7 +39,18 @@ AS WITH
              , LAG(end)
                    OVER (PARTITION BY your_unique_identifier, college_name ORDER BY end ASC) AS previous_end_date__c ---grabs the latest end date over identifier x college partition
         FROM
-          main.national_student_clearinghouse.naviance_data_all
+         national_student_clearinghouse.raw_data_2023_04_27
+         -- main.national_student_clearinghouse.raw_data_2022_12_05
+         ---main.national_student_clearinghouse.raw_data_2018_11_28
+         ---main.national_student_clearinghouse.raw_data_2019_08_17
+         ---main.national_student_clearinghouse.raw_data_2019_04_15
+         ---main.national_student_clearinghouse.raw_data_2019_11_25
+         ---main.national_student_clearinghouse.raw_data_2020_04_22
+         ---main.national_student_clearinghouse.raw_data_2020_09_18
+         ---main.national_student_clearinghouse.raw_data_2021_04_16
+         ---main.national_student_clearinghouse.raw_data_2022_04_21
+         ---main.national_student_clearinghouse.raw_data_2022_08_30
+         ---main.national_student_clearinghouse.raw_data_2022_12_05
 
     )
   ,
@@ -38,8 +58,8 @@ AS WITH
     step2_islandid AS (
         SELECT *
              , LEAD(begin, 1) OVER (PARTITION BY your_unique_identifier ORDER BY begin, end) AS next_start_date__c
-             , DATEADD(DAY,131, previous_end_date__c) AS gap
-             , IFF(DATEDIFF(DAY, previous_end_date__c, begin) >=  131,
+             , DATEADD(DAY,$enrollment_gap, previous_end_date__c) AS gap
+             , IFF(DATEDIFF(DAY, previous_end_date__c, begin) >=  $enrollment_gap,
                    TRUE, FALSE) AS islandstart
              , SUM(islandstart::INTEGER)
                    OVER (PARTITION BY your_unique_identifier, college_name ORDER BY rn) AS islandid
@@ -78,7 +98,7 @@ AS WITH
           , MIN(begin) OVER (PARTITION BY id) AS start_date__c
           , MAX(end) OVER (PARTITION BY id) AS end_date__c
             -- 4. grabs the current date of the machine */
-          , date_updated AS date_last_verified__c
+          , $date_updated AS date_last_verified__c
       ,      graduated
             /* 5. change data source if that's ever necessary */
         ,    'National Student Clearinghouse' AS data_source__c
@@ -86,7 +106,7 @@ AS WITH
           , max(degree_title) over (partition by id) AS degree_text__c
           , major AS major_text__c
           , MAX(college_name) OVER (PARTITION BY id) AS college_text__c
-          , nsc_enrollment_status
+          , enrollment_status AS nsc_enrollment_status
           , your_unique_identifier
           , MAX(college_code_branch) OVER (PARTITION BY id) AS college_code_branch
           , MAX(_2_year_4_year) OVER (PARTITION BY id) AS _2_year_4_year
@@ -254,10 +274,10 @@ AS WITH
          , CASE
                WHEN grad_correct = 'Y' THEN 'Graduated'
                WHEN nsc_enrollment_status = 'W' THEN 'Withdrew'
-               WHEN grad_correct = 'N' AND daysgap < 131
+               WHEN grad_correct = 'N' AND daysgap < $enrollment_gap
                    AND next_start_name__c NOT LIKE college_text__c
                    THEN 'Transferred Within 131 days' /* option to change days that count as extended gap */
-               WHEN grad_correct = 'N' AND daysgap > 131
+               WHEN grad_correct = 'N' AND daysgap > $enrollment_gap
                    AND next_start_name__c NOT LIKE college_text__c
                    THEN 'Transferred After 131 days'
                WHEN grad_correct = 'N' AND nsc_enrollment_status = 'F' THEN 'Enrolled Full-time'
