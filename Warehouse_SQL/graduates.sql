@@ -1,5 +1,8 @@
 /*
- * See this gitbook for how to use this query: https://app.gitbook.com/o/-LxjWyeokAsuZLyAr6q3/s/-MNUJzWQIebv9CNouxFt/
+ * Author: Howard Shen
+ * Last Edit: July 20, 2022
+ * Purpose: This query grabs the list of graduates to upload to the NSC FTP server.
+ * See this gitbook for complete instructions: https://app.gitbook.com/o/-LxjWyeokAsuZLyAr6q3/s/-MNUJzWQIebv9CNouxFt/
  */
 
 
